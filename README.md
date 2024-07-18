@@ -1,1 +1,3 @@
-# gender_neutralizer
+# Gender Neutralizer
+
+Chrome extension for gender neutralization.
