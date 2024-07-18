@@ -1,0 +1,26 @@
+﻿//Browseren leder efter manifest filen, og den bruger den fil til at finde alle filer i programmet. Minder om index.html
+
+{
+  "manifest_version": 2, //Standard google extension format
+  "name": "Gender Neutralizer", // Titel på programmet
+  "version": "4.0", // Vores version
+  "background": {
+    "scripts":["background.js"]
+  }, //Script der kører i baggrunden, og læser de aktiviteter der sker i browseren (ikke kun i den åbne fane)
+  "content_scripts": [ //Programmer der kører på den åbne hjemmeside, interagerer ikke med browseren men kun den åbne side
+    {
+      "matches": ["<all_urls>"], // Den skal virke på alle sider
+      "js": ["genders.js", "content.js"] // Filer til programmet der skal indlæses
+    }
+  ],
+  "permissions": ["tabs", "activeTab", "webNavigation"], // De tilladelser vi formentlig skal bruge, tabs er den vigtigste. Er skrevet på for en sikkerheds skyld
+  "browser_action": { // Alle de manipulationer vi laver med browseren, i det her tilfælde er det logoet på vores program
+  "default_icon": "/logo/128.png"
+  },
+  "icons": {
+    "16": "/logo/16.png",
+    "48": "/logo/48.png",
+    "128": "/logo/128.png"
+  }
+}
+//Den første fil den læser er background.js
